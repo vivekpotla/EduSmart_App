@@ -48,7 +48,7 @@ export const Signup = async(req,res,next)=>
     {
         return res.status(404).json({message:"faculty Creation Failed!"});
     }
-    return res.status(201).json({faculty});
+    return res.status(201).json({user:faculty});
 }
 export const login = async(req,res,next)=>
 {
@@ -72,6 +72,6 @@ export const login = async(req,res,next)=>
         return res.status(404).json({message:"Incorrect Password!"});
 
     }
-    return res.status(200).json({message:"Login Successfull",faculty:existingFaculty});
+    return res.status(200).json({message:"Login Successfull",user:existingFaculty});
 
 }
