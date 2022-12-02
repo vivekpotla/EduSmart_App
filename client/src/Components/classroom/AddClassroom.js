@@ -17,16 +17,13 @@ function AddClassroom() {
         const sendRequest = async()=>
         {
             isLoading(true);
-            const res = await axios.post("https://studyplanner68.herokuapp.com/api/course/create",
+            var userId = localStorage.getItem("userId")
+            const res = await axios.post(`http://localhost:5000/api/class/addclass/${userId}`,
             {
                 title:obj.title,
                 subject:obj.subject,
-                startDate:obj.startDate,
-                startTime:obj.startTime,
-                endDate:obj.endDate,
-                endTime:obj.endTime,
+                startDate:"12",
                 capacity:obj.capacity,
-                creator:localStorage.getItem("userId")
             })
             .catch(err=>isLoading(false))
             const data = res.data;
