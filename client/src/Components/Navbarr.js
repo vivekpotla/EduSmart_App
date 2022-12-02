@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -5,14 +6,31 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate,  } from 'react-router-dom';
+import { authActions } from '../store';
 
 function Navbarr() {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector((state)=>state.isLoggedIn);
+  console.log(isLoggedIn);
+  useEffect(()=>
+  {
+    if(localStorage.getItem("userId"))
+    {
+      dispatch(authActions.login());
+    }
+  },[dispatch]);
+  const userType = localStorage.getItem("userType");
+
   return (
     <>
       {['sm'].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+            <Navbar.Brand href="/">EduSmart</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -21,36 +39,50 @@ function Navbarr() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+                  EduSmart
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
+                {/*  className="justify-content-end flex-grow-1 pe-3" */}
+                <Nav pullRight>
+                  <Nav.Link href="">Home</Nav.Link>
+                  {isLoggedIn && 
                   <NavDropdown
-                    title="Dropdown"
+                    title="Learn-Here"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/mainclass">CLASSROOMS</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                 { userType === "faculty"  && <NavDropdown.Item href="/addclass">ADD-CLASS</NavDropdown.Item>}
+
+        
+                    </NavDropdown>
+                  }
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
+                <Nav>
+                  {
+                    !isLoggedIn && <>
+                     <NavDropdown
+                    title="Auth"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
+                    <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/signup">Signup</NavDropdown.Item>
+                    </NavDropdown>
+                    
+                    </>
+                  }
+               
+                 { isLoggedIn && <>
+                  <Nav.Link className='nav-link text-dark' to='/' onClick={() => {
+                      localStorage.removeItem("userId");
+                      localStorage.removeItem("userType");
+                      dispatch(authActions.logout());
+                      navigate("/");
+                    }}>LOGOUT</Nav.Link>
+                    </>}
+                </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
