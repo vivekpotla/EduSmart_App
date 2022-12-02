@@ -57,7 +57,8 @@ export const addClass = async (req,res,next)=>
         startDate,
         capacity,
         students:[],
-        faculties:[]
+        faculties:[],
+        tests : []
     });
     try {
         const session = await mongoose.startSession();

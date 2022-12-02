@@ -55,7 +55,8 @@ export const Signup = async(req,res,next)=>
         name,
         email,
         password:hashedPassword,
-        classrooms:[]
+        classrooms:[],
+        tests : []
 
     });
     try

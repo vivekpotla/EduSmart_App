@@ -24,7 +24,8 @@ const classSchema = new Schema({
        required : true 
     },
     students :[{type:mongoose.Types.ObjectId,ref:"Student"}],
-    faculties :[{type:mongoose.Types.ObjectId,ref:"Faculty"}]
+    faculties :[{type:mongoose.Types.ObjectId,ref:"Faculty"}],
+    tests : [{type:mongoose.Types.ObjectId,ref:"Test"}]
 
 });
 

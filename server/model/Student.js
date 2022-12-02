@@ -19,6 +19,7 @@ const studentSchema = new Schema({
         minLength:8
     },
     classrooms : [{type:mongoose.Types.ObjectId,ref:"Class"}],
+    tests : [{type:mongoose.Types.ObjectId,ref:"Test"}]
 
 });
 
