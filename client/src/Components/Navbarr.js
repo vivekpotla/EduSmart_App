@@ -47,6 +47,8 @@ function Navbarr() {
                 <Nav pullRight>
                   <Nav.Link href="">Home</Nav.Link>
                   {isLoggedIn && 
+                  <>
+                   <Nav.Link href="/typing">Fastest-Fingers</Nav.Link>
                   <NavDropdown
                     title="Learn-Here"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -57,6 +59,7 @@ function Navbarr() {
 
         
                     </NavDropdown>
+                    </>
                   }
                 </Nav>
                 <Nav>

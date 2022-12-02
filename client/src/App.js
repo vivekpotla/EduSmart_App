@@ -9,6 +9,7 @@ import Navbarr from './Components/Navbarr';
 import Home from './Components/Home';
 import AddClassroom from './Components/classroom/AddClassroom';
 import MainClassroom from './Components/classroom/MainClassroom';
+import Typing from "./Components/TypingComponent/Typing";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
     <div>
       <Navbarr/>
       <hr className='text-dark'/>
+      
       <Routes>
         {!isLoggedIn && 
         <>
@@ -38,6 +40,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         {userType === "faculty" && <Route path='/addclass' element={<AddClassroom/>} />}
          <Route path='/mainclass' element={<MainClassroom/>} />
+         <Route path='/typing' element={<Typing/>} />
         </>}
 
       

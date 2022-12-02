@@ -10,6 +10,7 @@ reducers : {
     },
     logout(state){   
         localStorage.removeItem("userId");
+        localStorage.removeItem("userType");
         state.isLoggedIn = false
     },
 },

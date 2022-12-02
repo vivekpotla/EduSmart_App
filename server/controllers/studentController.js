@@ -15,6 +15,23 @@ export const getAllStudents = async(req,res,next)=>
     }
     return res.status(200).json({Students});
 }
+export const getStudentById = async(req,res,next)=>
+{
+    const id = req.params.id;
+
+    let student;
+
+    try {
+        student = await Student.findById(id);
+    } catch (error) {
+        return console.log(error);
+    }
+    if(!student)
+    {
+        return res.status(404),json({message:"NO STUDENT FOUND!"});
+    }
+    return res.status(200).json({user:student});
+}
 
 export const Signup = async(req,res,next)=>
 {
@@ -38,6 +55,7 @@ export const Signup = async(req,res,next)=>
         name,
         email,
         password:hashedPassword,
+        classrooms:[]
 
     });
     try

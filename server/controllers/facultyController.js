@@ -15,6 +15,23 @@ export const getAllFaculties = async(req,res,next)=>
     }
     return res.status(200).json({Faculties});
 }
+export const getFacultyById = async(req,res,next)=>
+{
+    const id = req.params.id;
+
+    let faculty;
+
+    try {
+        faculty = await Faculty.findById(id);
+    } catch (error) {
+        return console.log(error);
+    }
+    if(!faculty)
+    {
+        return res.status(404),json({message:"NO FACULTY FOUND!"});
+    }
+    return res.status(200).json({user:faculty});
+}
 
 export const Signup = async(req,res,next)=>
 {
@@ -38,6 +55,7 @@ export const Signup = async(req,res,next)=>
         name,
         email,
         password:hashedPassword,
+        classrooms:[]
 
     });
     try

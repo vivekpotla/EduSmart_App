@@ -2,6 +2,7 @@ import express  from "express";
 import mongoose from "mongoose";
 import studentrouter from "./routes/Student-routes.js";
 import facultyRouter from "./routes/Faculty-routes.js";
+import classRouter from "./routes/Class-routes.js";
 import cors from "cors";
 import dotenv from 'dotenv';
 import path from 'path';
@@ -18,6 +19,7 @@ App.use(cors());
 App.use(express.json());
 App.use("/api/student",studentrouter);
 App.use("/api/faculty",facultyRouter);
+App.use("/api/class",classRouter);
 // ------------deployment------------
 
 const __dirname = path.resolve();

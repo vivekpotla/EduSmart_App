@@ -18,6 +18,7 @@ const studentSchema = new Schema({
         require : true,
         minLength:8
     },
+    classrooms : [{type:mongoose.Types.ObjectId,ref:"Class"}],
 
 });
 
