@@ -44,7 +44,7 @@ function Navbarr() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 {/*  className="justify-content-end flex-grow-1 pe-3" */}
-                <Nav pullRight>
+                <Nav >
                   <Nav.Link href="">Home</Nav.Link>
                   {isLoggedIn && 
                   <>

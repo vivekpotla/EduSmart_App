@@ -1,0 +1,22 @@
+.chatbotbtn
+{
+    right: 40px;
+    bottom: 30px;
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.chatbot
+{
+    right: 30px;
+    bottom: 30px;
+    position: fixed;
+    border-radius: 50%;
+}
+.chatbotcross
+{
+    right: 50px;
+    bottom: 500px;
+    position: fixed;
+    border-radius: 50%;
+}

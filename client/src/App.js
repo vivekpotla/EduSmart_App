@@ -10,6 +10,9 @@ import Home from './Components/Home';
 import AddClassroom from './Components/classroom/AddClassroom';
 import MainClassroom from './Components/classroom/MainClassroom';
 import Typing from "./Components/TypingComponent/Typing";
+import Chatbott from './Components/ChatBot/Chatbott.js';
+
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +26,12 @@ function App() {
     }
   },[dispatch]);
   const userType = localStorage.getItem("userType");
+
+
+
+
+
+
   return (
     <div>
       <Navbarr/>
@@ -41,10 +50,15 @@ function App() {
         {userType === "faculty" && <Route path='/addclass' element={<AddClassroom/>} />}
          <Route path='/mainclass' element={<MainClassroom/>} />
          <Route path='/typing' element={<Typing/>} />
+
         </>}
 
       
       </Routes>
+      
+     <Chatbott/>
+    
+      
     </div>
   )
 }
