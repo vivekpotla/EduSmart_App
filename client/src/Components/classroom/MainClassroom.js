@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import CardClassroom from './CardClassroom'
 import axios from 'axios';
-
+import {authActions} from "../../store";
+import { useDispatch } from 'react-redux';
 const MainClassroom = () => {
+  let dispatch=useDispatch();
+  useEffect(()=>{
+    dispatch(authActions.outHome())
+  },[])
+
   const [userDetails, setUserDetails] = useState();
   const userId = localStorage.getItem("userId");
   const userType = localStorage.getItem("userType");

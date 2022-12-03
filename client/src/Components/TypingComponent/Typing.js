@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import { quotesArray, random, allowedKeys } from './Helper'
 import './Typing.css'
 import ItemList from './ItemList'
+import {authActions} from '../../store'
+import {useDispatch} from 'react-redux'
 let interval = null
 
 const Typing = () => {
@@ -20,11 +22,17 @@ const Typing = () => {
 	const [ accuracy, setAccuracy ] = useState(0)
 	const [ isError, setIsError ] = useState(false)
 	const [ lastScore, setLastScore ] = useState('0')
-
+	let dispatch = useDispatch()
 	useEffect(() => {
 		const newQuote = random(quotesArray)
 		setQuote(newQuote)
 		setInput(newQuote.quote)
+		
+
+   
+  
+        dispatch(authActions.outHome())
+
 	}, [])
 
 	const handleEnd = () => {

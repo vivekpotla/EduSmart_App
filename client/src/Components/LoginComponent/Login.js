@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import './Login.css'
 import {FaUserAlt} from 'react-icons/fa'
 import {MdEmail} from 'react-icons/md'
@@ -11,11 +11,16 @@ import axios from "axios";
 import useButtonLoader from '../useButtonLoader'
 import {authActions} from "../../store";
 
-
 function Login() {
+  let dispatch=useDispatch();
+  useEffect(()=>{
+    dispatch(authActions.outHome())
+  },[])
+
+
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+ 
   const [check, setCheck] = useState(false);
   const [userType, setUserType] = useState('faculty');
   const { register, handleSubmit, formState: { errors } } = useForm();

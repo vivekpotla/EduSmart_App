@@ -13,6 +13,7 @@ import Typing from "./Components/TypingComponent/Typing";
 import Chatbott from './Components/ChatBot/Chatbott.js';
 import Home from "./Components/Landing/home/Homee"
 //import './App.css'
+import Header from './Components/Landing/common/header/Header'
 
 
 function App() {
@@ -35,13 +36,16 @@ function App() {
 
   return (
     <div>
-      <Navbarr/>
-      <hr className='text-dark'/>
-      
+      <div className="Totall">
+      <Header />
+
+      </div>
+      {/* <Navbarr/> */}
       <Routes>
+
         {!isLoggedIn && 
         <>
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login'  element={<Login />} />
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/' element={<Home/>} />
         </>}

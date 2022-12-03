@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import './SignUp.css'
 import { FaUserAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
@@ -16,6 +16,9 @@ function SignUp() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(authActions.outHome())
+  },[])
   const [userType, setUserType] = useState("faculty");
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [check, setCheck] = useState(false);

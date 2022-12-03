@@ -14,7 +14,12 @@
 /*--------header------------*/
 header {
   background-color: rgba(255, 255, 255, 0.2);
-  margin: 0 30px;
+}
+header li {
+ 
+  font-size:25px;
+  font-weight: bold;
+
 }
 header .nav {
   display: flex !important;
@@ -49,6 +54,7 @@ header ul li a:hover {
   }
   header {
     margin: 0;
+    padding:0;
     background-color: #1eb2a6;
     position: relative;
   }
@@ -74,4 +80,9 @@ header ul li a:hover {
     width: 100%;
     background-color: #1eb2a6;
   }
+}
+
+header img{
+    width:60px;
+
 }
