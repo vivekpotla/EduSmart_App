@@ -21,7 +21,7 @@ function AddTest() {
         {
             isLoading(true);
             var userId = localStorage.getItem("userId")
-            const res = await axios.post(`http://localhost:5000/api/test/addtest`,
+            const res = await axios.post(`http://localhost:5000/api/class/addstudent/${id}`,
             {
                 title:obj.title,
                 description:obj.description,
@@ -47,22 +47,15 @@ function AddTest() {
                       <Col xs={12} md={6}><img src={addsession} className='w-100' alt="" srcset="" /></Col>
                       <Col xs={12} md={6} className='p-4'>
                       <div>
-                              <p className='display-6 text-center m-3'>ADD-TESTS</p>
+                              <p className='display-6 text-center m-3'>ADD-STUDENTS</p>
                           </div>
                           <hr />
                           {/* title */}
                           <div className="mb-3">
-                              <label htmlFor="title" className='text-center mt-1 mb-1'>TITLE</label>
-                              <input type="text" style={{ borderRadius: '15px' }} id="title" className="form-control  " {...register("title", { required: true })} />
-                              {/* validation error msg for title */}
-                              {errors.title?.type === 'required' && <p className='text-danger'>*Title is required</p>}
-                          </div>
-                          {/* description */}
-                          <div className="mb-3">
-                              <label htmlFor="description" className='mt-3 mb-1 d-block m-auto'>DESCRIPTION</label>
-                              <input type="text" style={{ borderRadius: '15px' }} id="description" className="form-control" {...register("description", { required: true})} />
-                              {/* validation error msg for description */}
-                              {errors.description?.type === 'required' && <p className='text-danger'>*description is required</p>}
+                              <label htmlFor="emailid" className='text-center mt-1 mb-1'>Email of Student</label>
+                              <input type="email" style={{ borderRadius: '15px' }} id="emailid" className="form-control  " {...register("emailid", { required: true })} />
+                              {/* validation error msg for emailid */}
+                              {errors.emailid?.type === 'required' && <p className='text-danger'>*Emailid is required</p>}
                           </div>
                          
                           {/* submit button */}

@@ -78,13 +78,14 @@ export const addClass = async (req,res,next)=>
 
 export const addStudent = async (req,res,next)=>
 {
-    const {classId} = req.body;
-    const studentId = req.params.id;
+   const {emailid} = req.body;
+    const classId = req.params.id;
+
 
     let existingClass ,existingStudent,enrolledStudent;
     try {
         existingClass = await Class.findById(classId);
-        existingStudent = await Student.findById(studentId);
+        existingStudent = await Student.findOne({email:emailid});
         enrolledStudent = existingStudent.classrooms.includes(classId);
         
       
@@ -105,7 +106,7 @@ export const addStudent = async (req,res,next)=>
     {
         const session = await mongoose.startSession();
         session.startTransaction();
-        existingClass.students.push(studentId);
+        existingClass.students.push(existingStudent._id);
         await existingClass.save({session});
         existingStudent.classrooms.push(classId);
         await existingStudent.save({session});

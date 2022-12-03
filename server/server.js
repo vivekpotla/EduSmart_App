@@ -7,6 +7,7 @@ import testRouter from "./routes/Test-routes.js";
 import cors from "cors";
 import dotenv from 'dotenv';
 import path from 'path';
+import questRouter from "./routes/Quest-routes.js";
 
 
 
@@ -22,6 +23,7 @@ App.use("/api/student",studentrouter);
 App.use("/api/faculty",facultyRouter);
 App.use("/api/class",classRouter);
 App.use("/api/test",testRouter);
+App.use("/api/quest",questRouter);
 // ------------deployment------------
 
 const __dirname = path.resolve();

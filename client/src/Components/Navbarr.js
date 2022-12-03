@@ -48,7 +48,7 @@ function Navbarr() {
                   <Nav.Link href="">Home</Nav.Link>
                   {isLoggedIn && 
                   <>
-                   <Nav.Link href="/typing">Fastest-Fingers</Nav.Link>
+                  {userType=== "student" && <Nav.Link href="/typing">Fastest-Fingers</Nav.Link> } 
                   <NavDropdown
                     title="Learn-Here"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
