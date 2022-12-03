@@ -4,11 +4,13 @@ import axios from "axios";
 import { FaEllipsisV } from 'react-icons/fa'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCirclePlay,faStar,faInfinity,faIndianRupeeSign,faCircleInfo,faStarHalf} from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 const CardClassroom = ({ classroomId }) => {
   const [classroom, setClassroom] = useState();
   const [faculty, setFaculty] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   async function getFaculty(id) {
     const { data } = await axios.get(
@@ -45,7 +47,7 @@ return (
         <div className="card-body">
           <h5 className="card-title">{classroom.subject}</h5>
           <p className="card-text">Start Date: {classroom.startDate}</p>
-          <div className='d-flex justify-content-between align-items-center'><div href="#" className="btn btn-primary">Open</div>
+          <div className='d-flex justify-content-between align-items-center'><div onClick={()=>{navigate('addtest')}} className="btn btn-primary">Open</div>
             <div className='text-end '>{faculty.name}</div></div>
         </div>
       </div>)}

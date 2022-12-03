@@ -24,9 +24,9 @@ const MainClassroom = () => {
   return (
     <div className='container'>
       <Row>
-        {userDetails && userDetails.classrooms.map((item) => (
-          <Col xs={12} md={6} lg={4}>
-            <CardClassroom classroomId={item} key={item} />
+        {userDetails && userDetails.classrooms.map((item,index) => (
+          <Col xs={12} md={6} lg={4} key={index} >
+            <CardClassroom classroomId={item} />
           </Col>
         ))}
       </Row>
