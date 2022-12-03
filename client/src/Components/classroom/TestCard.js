@@ -34,12 +34,12 @@ console.log(testId)
                {userType === "faculty" && 
                <>
                 <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`/addquestion/${testId}`)}>Add Question</Button></Col>
-                <Col sm={12} md={6}>View Scores</Col>
+                <Col sm={12} md={6}><Button variant = "outline-primary" >View Scores</Button></Col>
                </>} 
                {userType === "student" && 
                <>
                 <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`startquiz/${testId}`)}>Start Test</Button></Col>
-                <Col sm={12} md={6}>LeaderBoard</Col>
+                <Col sm={12} md={6}><Button variant = "outline-primary" >LeaderBoard</Button></Col>
                </>} 
             </Row>
         </div>

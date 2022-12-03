@@ -4,12 +4,15 @@ import CardClassroom from './CardClassroom'
 import axios from 'axios';
 import {authActions} from "../../store";
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Button} from "react-bootstrap"
+
 const MainClassroom = () => {
   let dispatch=useDispatch();
   useEffect(()=>{
     dispatch(authActions.outHome())
   },[])
-
+  const navigate =useNavigate();
   const [userDetails, setUserDetails] = useState();
   const userId = localStorage.getItem("userId");
   const userType = localStorage.getItem("userType");
@@ -29,6 +32,9 @@ const MainClassroom = () => {
   console.log(userDetails)
   return (
     <div className='container'>
+      <div>
+      {userType === "faculty" && <Button onClick={()=>navigate("/addclass")} >Add Classroom</Button> }  
+      </div>
       <Row>
         {userDetails && userDetails.classrooms.map((item,index) => (
           <Col xs={12} md={6} lg={4} key={index} >

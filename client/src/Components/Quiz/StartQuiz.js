@@ -7,18 +7,39 @@ import './Quiz.css';
 
 
 function StartQuiz() {
-    const testId = useParams().testid;
-    const [test, setTest] = useState([]);
-    async function getTest(id) {
-        const { data } = await axios.get(
-            `http://localhost:5000/api/test/${id}`
-        );
-        setTest(data.test.questions)
-        console.log(data.test.questions)
-    }
-    useEffect(() => {
-        getTest(testId);
-    }, [])
+    // const testId = useParams().testid;
+    // const [test, setTest] = useState([]);
+    // const [questions,setQuestions] = useState([]);
+    // const [isLoading, setIsLoading] = useState(false);
+    // async function getTest(id) {
+    //     const { data } = await axios.get(
+    //         `http://localhost:5000/api/test/${id}`
+    //     );
+    //     setTest(data.test.questions)
+    //     setIsLoading(true)
+    //     console.log(data.test.questions)
+    // }
+
+
+    // useEffect(() => {
+    //     getTest(testId);
+    // }, [])
+
+    // async function getQuestions(id) {
+    //     const { data } = await axios.get(
+    //         `http://localhost:5000/api/quest/${id}`
+    //     );
+    //     setQuestions(data)
+    //     console.log(data)
+    // }
+
+    // useEffect(()=>{
+    //     test
+    // },[])
+    // const loadintoarray = async () => {
+
+    // }
+
 
 
     var Questionbank = [

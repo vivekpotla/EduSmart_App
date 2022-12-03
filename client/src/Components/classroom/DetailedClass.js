@@ -35,7 +35,25 @@ function DetailedClass() {
           <p className='m-5'> CAPACITY : {classs.capacity}</p>
           <p className='m-5' >SUBJECT : {classs.subject}</p>
           <p className='m-5'>START DATE-TIME :{classs.startDate}  {classs.startTime}</p>
+
+          <h2 className='mx-5 mt-5'>List of Students</h2>
+          {classs.students &&
+            <table className='mx-5 mb-5'>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classs.students.map((studentId, index) => (
+                  <StudentCard studentId={studentId} key={index} />
+                )
+                )}
+              </tbody>
+            </table>}
         </Col>
+
 
         <Col sm={12} lg={6}>
           <h1 className='text-center'>{classs.title}</h1>
@@ -63,24 +81,7 @@ function DetailedClass() {
 
       </Row>
 
-      <Row>
-        <h2 className='mx-5 mt-5'>List of Students</h2>
-        {classs.students &&
-          <table className='mx-5 mb-5'>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              {classs.students.map((studentId, index) => (
-                <StudentCard studentId={studentId} key={index} />
-              )
-              )}
-            </tbody>
-          </table>}
-      </Row>
+
 
     </div>
   )

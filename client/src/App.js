@@ -33,7 +33,7 @@ function App() {
     }
   }, [dispatch]);
   const userType = localStorage.getItem("userType");
-
+  const inHome = useSelector((state)=>(state.inHome))
 
 
 
@@ -44,7 +44,7 @@ function App() {
       <div className='Totall'>
         <Header />
       </div>
-      <hr className='text-dark' />
+       {inHome && <hr />} 
       <Routes>
         {!isLoggedIn &&
           <>
