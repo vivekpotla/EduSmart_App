@@ -38,21 +38,23 @@ const CardClassroom = ({ classroomId }) => {
   }
 
 return (
-  <div className='container'>
-    {faculty && (classroom &&
-      <div className="card">
-        <div className="card-header display-7">
-          {classroom.title}
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">{classroom.subject}</h5>
-          <p className="card-text">Start Date: {classroom.startDate}</p>
-          <div className='d-flex justify-content-between align-items-center'><div onClick={()=>{navigate('addtest')}} className="btn btn-primary">Open</div>
-            <div className='text-end '>{faculty.name}</div></div>
-        </div>
-      </div>)}
+<div className='container'>
+      {faculty && (classroom &&
+        <div className="card">
+          <div className="card-header display-7">
+            {classroom.title}
+          </div>
+          <div className="card-body">
+            <h5 className="card-title">{classroom.subject}</h5>
+            <p className="card-text">Start Date: {classroom.startDate}</p>
+            <div className='d-flex justify-content-between align-items-center'>
+              <div onClick={handleopen} className="btn btn-primary">Open</div>
+              <div className='text-end '>{faculty.name}</div></div>
+          </div>
 
-  </div>
+        </div>)}
+      <div onClick={() => { navigate('addtest') }} className="btn btn-primary m-3">Add Test</div>
+    </div>
 )
 }
 
