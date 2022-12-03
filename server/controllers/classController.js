@@ -37,7 +37,7 @@ export const getClassById = async(req,res,next)=>
 
 export const addClass = async (req,res,next)=>
 {
-    const {title,subject, startDate,capacity} = req.body;
+    const {title,subject, startDate,capacity,imageurl,classurl} = req.body;
     const facultyid = req.params.id;
 
     let existingFaculty;
@@ -56,6 +56,8 @@ export const addClass = async (req,res,next)=>
         subject,
         startDate,
         capacity,
+        imageurl,
+        classurl,
         students:[],
         faculties:[],
         tests : []
