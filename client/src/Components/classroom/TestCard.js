@@ -30,11 +30,16 @@ console.log(testId)
             <div className='display-6'>
                 Description: <span className='display-7 text-truncate'>{test.description}</span>
             </div>
-            <Row>
+            <Row className='m-2'>
                {userType === "faculty" && 
                <>
                 <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`/addquestion/${testId}`)}>Add Question</Button></Col>
                 <Col sm={12} md={6}>View Scores</Col>
+               </>} 
+               {userType === "student" && 
+               <>
+                <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`/addquestion/${testId}`)}>Start Test</Button></Col>
+                <Col sm={12} md={6}>LeaderBoard</Col>
                </>} 
             </Row>
         </div>
