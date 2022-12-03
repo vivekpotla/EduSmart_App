@@ -15,19 +15,21 @@ const AboutCard = () => {
           <div className='right row'>
             <Heading subtitle='LEARN ANYTHING' title='Benefits About Online Learning Expertise' />
             <div className='items'>
-              {homeAbout.map((val) => {
-                return (
-                  <div className='item flexSB'>
-                    <div className='img'>
-                      <img src={val.cover} alt='' />
-                    </div>
-                    <div className='text'>
-                      <h2>{val.title}</h2>
-                      <p>{val.desc}</p>
-                    </div>
+
+              return (
+              {homeAbout.map((val, index) => {
+                <div className='item flexSB' key={index}>
+                  <div className='img'>
+                    <img src={val.cover} alt='' />
                   </div>
-                )
+                  <div className='text'>
+                    <h2>{val.title}</h2>
+                    <p>{val.desc}</p>
+                  </div>
+                </div>
               })}
+              )
+
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ return (
             <div className='text-end '>{faculty.name}</div></div>
         </div>
       </div>)}
-      <div className="mt-2 w-100">
+      {/* <div className="mt-2 w-100">
         <div className="row p-3">
             <div className="col-md-4">
                 <img src={classroom.imageurl} className="w-100 border" alt=""/>
@@ -63,7 +63,7 @@ return (
             <div className='col-md-3'><h4 className='fw-bold'><FontAwesomeIcon icon={faIndianRupeeSign} /> {classroom.price}</h4></div>
         </div>
         <hr></hr>
-    </div>
+    </div> */}
   </div>
 )
 }

@@ -7,8 +7,8 @@ const CoursesCard = () => {
     <>
       <section className='coursesCard'>
         <div className='container grid2'>
-          {coursesCard.map((val) => (
-            <div className='items'>
+          {coursesCard.map((val,index) => (
+            <div className='items' key={index}>
               <div className='content flex'>
                 <div className='left'>
                   <div className='img'>
@@ -26,9 +26,9 @@ const CoursesCard = () => {
                     <label htmlFor=''>(5.0)</label>
                   </div>
                   <div className='details'>
-                    {val.courTeacher.map((details) => (
+                    {val.courTeacher.map((details,index) => (
                       <>
-                        <div className='box'>
+                        <div className='box' key={index}>
                           <div className='dimg'>
                             <img src={details.dcover} alt='' />
                           </div>
