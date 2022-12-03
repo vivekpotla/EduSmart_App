@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import detailpng from "../../images/detailpng.jpeg"
 import { Row, Col } from 'react-bootstrap'
 import ReactPlayer from 'react-player';
 
 function DetailedClass() {
+    const navigate = useNavigate();
   const id = useParams().id;
   console.log(id);
   const [classs, setClass] = useState([]);
@@ -41,7 +42,7 @@ function DetailedClass() {
         </Col>
       </Row>
         </Col>
-        <Col md={12} lg={3}></Col>
+        <Col md={12} lg={3}> <div onClick={() => { navigate('addtest') }} className="btn btn-primary m-3">Add Test</div></Col>
       </Row>
       
 

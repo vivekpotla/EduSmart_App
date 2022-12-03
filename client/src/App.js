@@ -49,11 +49,13 @@ function App() {
         {isLoggedIn &&
           <>
             <Route path='/' element={<Home />} />
-            {userType === "faculty" && <Route path='/addclass' element={<AddClassroom />} />}
+            {userType === "faculty" && <><Route path='/addclass' element={<AddClassroom />} />
+            <Route path='mainclass/:id/addtest' element={<AddTest />} />
+            </>}
+            {userType === "student" && <Route path='/typing' element={<Typing />} />}
             <Route path='/mainclass' element={<MainClassroom />} />
-            <Route path='/typing' element={<Typing />} />
             <Route path='/mainclass/:id' element={<DetailedClass />} />
-            <Route path='mainclass/addtest' element={<AddTest />} />
+           
           </>}
       </Routes>
       <Chatbott />
