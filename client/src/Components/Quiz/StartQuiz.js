@@ -7,18 +7,18 @@ import './Quiz.css';
 
 
 function StartQuiz() {
-    const testId  = useParams().testid;
-    const [test,setTest] = useState([]);
+    const testId = useParams().testid;
+    const [test, setTest] = useState([]);
     async function getTest(id) {
         const { data } = await axios.get(
             `http://localhost:5000/api/test/${id}`
         );
         setTest(data.test.questions)
         console.log(data.test.questions)
-}
-useEffect(() => {
-    getTest(testId);
-},[])
+    }
+    useEffect(() => {
+        getTest(testId);
+    }, [])
 
 
     var Questionbank = [
@@ -57,7 +57,7 @@ useEffect(() => {
                 { Answer: "sept", isCorrect: false }
             ]
         },
-       
+
     ]
 
     //useState Hook
