@@ -15,6 +15,8 @@ import DetailedClass from './Components/classroom/DetailedClass';
 import Home from "./Components/Landing/home/Homee"
 //import './App.css'
 import AddTest from './Components/Tests/AddTest';
+import AddQuestions from './Components/Questions/AddQuestions';
+
 
 
 
@@ -49,8 +51,11 @@ function App() {
         {isLoggedIn &&
           <>
             <Route path='/' element={<Home />} />
-            {userType === "faculty" && <><Route path='/addclass' element={<AddClassroom />} />
+            {userType === "faculty" && 
+            <>
+            <Route path='/addclass' element={<AddClassroom />} />
             <Route path='mainclass/:id/addtest' element={<AddTest />} />
+            <Route path='addquestions' element={<AddQuestions />} />
             </>}
             {userType === "student" && <Route path='/typing' element={<Typing />} />}
             <Route path='/mainclass' element={<MainClassroom />} />

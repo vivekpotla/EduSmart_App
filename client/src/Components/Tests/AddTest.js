@@ -47,7 +47,7 @@ function AddTest() {
                       <Col xs={12} md={6}><img src={addsession} className='w-100' alt="" srcset="" /></Col>
                       <Col xs={12} md={6} className='p-4'>
                       <div>
-                              <p className='display-6 text-center m-3'>CREATE-CLASSROOM</p>
+                              <p className='display-6 text-center m-3'>ADD-TESTS</p>
                           </div>
                           <hr />
                           {/* title */}
