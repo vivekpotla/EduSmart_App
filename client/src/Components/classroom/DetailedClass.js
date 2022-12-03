@@ -26,7 +26,7 @@ function DetailedClass() {
   return (
     <div classs='display-6' style={{ color: "#324e8f" }}>
       <Row>
-          <Col md={12} lg={3}>
+          <Col sm={12} lg={3}>
             <div onClick={() => { navigate('addstudent') }} className="btn btn-primary mx-3 my-1">Add Student</div>
             <hr /> 
             <h1 className='text-center'>CLASS-INFO</h1>
@@ -36,7 +36,7 @@ function DetailedClass() {
               <p className='m-5'>START DATE-TIME :{classs.startDate}  {classs.startTime}</p>
               </Col>
 
-        <Col md={12} lg={6}>
+        <Col sm={12} lg={6}>
           <h1 className='text-center'>{classs.title}</h1>
           <hr />
           <img src={classs.imageurl} alt="" className='w-100' /> 
@@ -48,10 +48,8 @@ function DetailedClass() {
           </div>
         
         </Col>
-        {
 
-        }
-        <Col md={12} lg={3}>{ userType==='faculty' &&  <div onClick={() => { navigate('addtest') }} className="btn btn-primary mx-3 my-1">Add Test</div>}
+        <Col sm={12} lg={3}>{ userType==='faculty' &&  <div onClick={() => { navigate('addtest') }} className="btn btn-primary mx-3 my-1">Add Test</div>}
           <hr/>
          <h1 className='text-center m-2'>ACTIVE-TESTS</h1> 
           {classs.tests && classs.tests.map((testId, index) => (

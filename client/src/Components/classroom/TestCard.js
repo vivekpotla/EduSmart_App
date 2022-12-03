@@ -38,7 +38,7 @@ console.log(testId)
                </>} 
                {userType === "student" && 
                <>
-                <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`/addquestion/${testId}`)}>Start Test</Button></Col>
+                <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`startquiz/${testId}`)}>Start Test</Button></Col>
                 <Col sm={12} md={6}>LeaderBoard</Col>
                </>} 
             </Row>

@@ -17,7 +17,7 @@ import Home from "./Components/Landing/home/Homee"
 import AddTest from './Components/Tests/AddTest';
 import AddQuestions from './Components/Questions/AddQuestions';
 import AddStudent from "./Components/classroom/AddStudent";
-
+import StartQuiz from './Components/Quiz/StartQuiz';
 
 
 
@@ -58,10 +58,12 @@ function App() {
             <Route path='mainclass/:id/addtest' element={<AddTest />} />
             <Route path='mainclass/:id/addstudent' element={<AddStudent />} />
             <Route path='/addquestion/:testid' element={<AddQuestions />} />
+            
             </>}
             {userType === "student" && <Route path='/typing' element={<Typing />} />}
             <Route path='/mainclass' element={<MainClassroom />} />
             <Route path='/mainclass/:id' element={<DetailedClass />} />
+            <Route path='mainclass/:id/startquiz/:testid' element={<StartQuiz />} />
            
           </>}
       </Routes>
