@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './CardClassroom.css'
 import axios from "axios";
-import { FaEllipsisV } from 'react-icons/fa'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCirclePlay,faStar,faInfinity,faIndianRupeeSign,faCircleInfo,faStarHalf} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 
 const CardClassroom = ({ classroomId }) => {
+  const navigate = useNavigate();
   const [classroom, setClassroom] = useState();
   const [faculty, setFaculty] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
 
   async function getFaculty(id) {
     const { data } = await axios.get(
@@ -36,6 +33,9 @@ const CardClassroom = ({ classroomId }) => {
       getFaculty(classroom.faculties[0]);
     }
   },[isLoading])
+  const handleopen = () => {
+    navigate(`/mainclass/${classroom._id}`);
+  }
 
 return (
   <div className='container'>
@@ -51,21 +51,7 @@ return (
             <div className='text-end '>{faculty.name}</div></div>
         </div>
       </div>)}
-      {/* <div className="mt-2 w-100">
-        <div className="row p-3">
-            <div className="col-md-4">
-                <img src={classroom.imageurl} className="w-100 border" alt=""/>
-            </div>
-            <div className="col-md-5">
-            <h6 className="fw-bold">{classroom.title}</h6>
-            <p>{classroom.description}</p>
-            <p>4.9 <FontAwesomeIcon icon={faStar} className="text-warning" /><FontAwesomeIcon icon={faStar} className="text-warning" /><FontAwesomeIcon icon={faStar}  className="text-warning"/><FontAwesomeIcon icon={faStar} className="text-warning"  /><FontAwesomeIcon icon={faStar} className="text-warning" />(44,123) </p>
-            <p className="text-secondary"> 13009 total hours. 119 lectures. All levels </p>
-            </div>
-            <div className='col-md-3'><h4 className='fw-bold'><FontAwesomeIcon icon={faIndianRupeeSign} /> {classroom.price}</h4></div>
-        </div>
-        <hr></hr>
-    </div> */}
+
   </div>
 )
 }

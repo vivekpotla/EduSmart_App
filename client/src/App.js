@@ -11,6 +11,7 @@ import AddClassroom from './Components/classroom/AddClassroom';
 import MainClassroom from './Components/classroom/MainClassroom';
 import Typing from "./Components/TypingComponent/Typing";
 import Chatbott from './Components/ChatBot/Chatbott.js';
+import DetailedClass from './Components/classroom/DetailedClass';
 import Home from "./Components/Landing/home/Homee"
 //import './App.css'
 import AddTest from './Components/Tests/AddTest';
@@ -38,7 +39,6 @@ function App() {
     <div>
       <Navbarr />
       <hr className='text-dark' />
-
       <Routes>
         {!isLoggedIn &&
           <>
@@ -52,13 +52,11 @@ function App() {
             {userType === "faculty" && <Route path='/addclass' element={<AddClassroom />} />}
             <Route path='/mainclass' element={<MainClassroom />} />
             <Route path='/typing' element={<Typing />} />
+            <Route path='/mainclass/:id' element={<DetailedClass />} />
             <Route path='mainclass/addtest' element={<AddTest />} />
           </>}
       </Routes>
-
       <Chatbott />
-
-
     </div>
   )
 }
