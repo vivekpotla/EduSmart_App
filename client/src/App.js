@@ -41,7 +41,9 @@ function App() {
 
   return (
     <div>
-      <Navbarr />
+      <div className='Totall'>
+        <Header />
+      </div>
       <hr className='text-dark' />
       <Routes>
         {!isLoggedIn &&
@@ -53,19 +55,19 @@ function App() {
         {isLoggedIn &&
           <>
             <Route path='/' element={<Home />} />
-            {userType === "faculty" && 
-            <>
-            <Route path='/addclass' element={<AddClassroom />} />
-            <Route path='mainclass/:id/addtest' element={<AddTest />} />
-            <Route path='mainclass/:id/addstudent' element={<AddStudent />} />
-            <Route path='/addquestion/:testid' element={<AddQuestions />} />
-            
-            </>}
+            {userType === "faculty" &&
+              <>
+                <Route path='/addclass' element={<AddClassroom />} />
+                <Route path='mainclass/:id/addtest' element={<AddTest />} />
+                <Route path='mainclass/:id/addstudent' element={<AddStudent />} />
+                <Route path='/addquestion/:testid' element={<AddQuestions />} />
+
+              </>}
             {userType === "student" && <Route path='/typing' element={<Typing />} />}
             <Route path='/mainclass' element={<MainClassroom />} />
             <Route path='/mainclass/:id' element={<DetailedClass />} />
             <Route path='mainclass/:id/startquiz/:testid' element={<StartQuiz />} />
-           
+
           </>}
       </Routes>
       <Chatbott />
