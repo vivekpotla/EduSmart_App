@@ -12,8 +12,10 @@ function AddClassroom() {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const[createButton,isLoading] = useButtonLoader("Create","Creating...")
+    // var date = new Date();
     const onFormSubmit = (obj)=>
     {
+
         const sendRequest = async()=>
         {
             isLoading(true);
@@ -24,6 +26,9 @@ function AddClassroom() {
                 subject:obj.subject,
                 startDate:"12",
                 capacity:obj.capacity,
+                imageurl:obj.imageurl,
+                classurl : obj.classurl
+
             })
             .catch(err=>isLoading(false))
             const data = res.data;
@@ -60,7 +65,18 @@ function AddClassroom() {
                               {/* validation error msg for subject */}
                               {errors.subject?.type === 'required' && <p className='text-danger'>*subject is required</p>}
                           </div>
-                         
+                          <div className="mb-3">
+                              <label htmlFor="imageurl" className='mt-3 mb-1 d-block m-auto'>IMAGE URL</label>
+                              <input type="text" style={{ borderRadius: '15px' }} id="imageurl" className="form-control" {...register("imageurl", { required: true})} />
+                              {/* validation error msg for imageurl */}
+                              {errors.imageurl?.type === 'required' && <p className='text-danger'>*imageurl is required</p>}
+                          </div>
+                          <div className="mb-3">
+                              <label htmlFor="classurl" className='mt-3 mb-1 d-block m-auto'>VIDEO LECTURE URL</label>
+                              <input type="text" style={{ borderRadius: '15px' }} id="classurl" className="form-control" {...register("classurl", { required: true})} />
+                              {/* validation error msg for classurl */}
+                              {errors.classurl?.type === 'required' && <p className='text-danger'>*classurl is required</p>}
+                          </div>
                         
                           
                            {/* capacity */}

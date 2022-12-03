@@ -23,6 +23,16 @@ const classSchema = new Schema({
        type : Number,
        required : true 
     },
+    imageurl:
+    {
+        type:String,
+        required:true,
+    },
+    classurl:
+    {
+        type:String,
+        required:true,
+    },
     students :[{type:mongoose.Types.ObjectId,ref:"Student"}],
     faculties :[{type:mongoose.Types.ObjectId,ref:"Faculty"}],
     tests : [{type:mongoose.Types.ObjectId,ref:"Test"}]
