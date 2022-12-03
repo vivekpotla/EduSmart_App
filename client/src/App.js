@@ -6,11 +6,12 @@ import {useDispatch,useSelector} from 'react-redux'
 import { authActions } from './store';
 import {useEffect} from 'react';
 import Navbarr from './Components/Navbarr';
-import Home from './Components/Home';
+// import Home from './Components/Home';
 import AddClassroom from './Components/classroom/AddClassroom';
 import MainClassroom from './Components/classroom/MainClassroom';
 import Typing from "./Components/TypingComponent/Typing";
 import Chatbott from './Components/ChatBot/Chatbott.js';
+import Home from "./Components/home/Homee"
 
 
 
