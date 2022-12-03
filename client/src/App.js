@@ -16,6 +16,7 @@ import Home from "./Components/Landing/home/Homee"
 //import './App.css'
 import AddTest from './Components/Tests/AddTest';
 import AddQuestions from './Components/Questions/AddQuestions';
+import AddStudent from "./Components/classroom/AddStudent";
 
 
 
@@ -55,6 +56,7 @@ function App() {
             <>
             <Route path='/addclass' element={<AddClassroom />} />
             <Route path='mainclass/:id/addtest' element={<AddTest />} />
+            <Route path='mainclass/:id/addstudent' element={<AddStudent />} />
             <Route path='/addquestion/:testid' element={<AddQuestions />} />
             </>}
             {userType === "student" && <Route path='/typing' element={<Typing />} />}

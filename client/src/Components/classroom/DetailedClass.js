@@ -25,7 +25,8 @@ function DetailedClass() {
   return (
     <div classs='display-6' style={{ color: "#324e8f" }}>
       <Row>
-        <Col md={12} lg={3}></Col>
+<Col md={12} lg={3}> <div onClick={() => { navigate('addstudent') }} className="btn btn-primary mx-3 my-1">Add Student</div>
+<hr /> </Col>
         <Col md={12} lg={6}>
           <h1 className='text-center'>{classs.title}</h1>
           <hr />
