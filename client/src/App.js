@@ -11,8 +11,8 @@ import AddClassroom from './Components/classroom/AddClassroom';
 import MainClassroom from './Components/classroom/MainClassroom';
 import Typing from "./Components/TypingComponent/Typing";
 import Chatbott from './Components/ChatBot/Chatbott.js';
-import Home from "./Components/home/Homee"
-
+import Home from "./Components/Landing/home/Homee"
+//import './App.css'
 
 
 function App() {
