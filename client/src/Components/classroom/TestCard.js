@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import {Row,Col,Button} from "react-bootstrap"
+import { useNavigate } from 'react-router-dom'
 
 const TestCard = ({ testId }) => {
+
+    const navigate = useNavigate();
     const [test, setTest] = useState({});
 console.log(testId)
+    const userType = localStorage.getItem("userType");
     async function getTest(id) {
         const { data } = await axios.get(
             `http://localhost:5000/api/test/${id}`
@@ -11,6 +16,7 @@ console.log(testId)
         setTest(data.test)
         console.log(data)
     }
+
 
     useEffect(() => {
         getTest(testId);
@@ -24,6 +30,13 @@ console.log(testId)
             <div className='display-6'>
                 Description: <span className='display-7 text-truncate'>{test.description}</span>
             </div>
+            <Row>
+               {userType === "faculty" && 
+               <>
+                <Col sm={12} md={6}> <Button variant = "outline-primary" onClick={()=>navigate(`/addquestion/${testId}`)}>Add Question</Button></Col>
+                <Col sm={12} md={6}>View Scores</Col>
+               </>} 
+            </Row>
         </div>
     )
 }

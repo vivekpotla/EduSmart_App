@@ -55,7 +55,7 @@ function App() {
             <>
             <Route path='/addclass' element={<AddClassroom />} />
             <Route path='mainclass/:id/addtest' element={<AddTest />} />
-            <Route path='addquestions' element={<AddQuestions />} />
+            <Route path='/addquestion/:testid' element={<AddQuestions />} />
             </>}
             {userType === "student" && <Route path='/typing' element={<Typing />} />}
             <Route path='/mainclass' element={<MainClassroom />} />

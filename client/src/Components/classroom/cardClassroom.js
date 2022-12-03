@@ -53,7 +53,7 @@ return (
           </div>
 
         </div>)}
-      <div onClick={() => { navigate('addtest') }} className="btn btn-primary m-3">Add Test</div>
+      
     </div>
 )
 }

@@ -11,31 +11,35 @@ function AddQuestions() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const[createButton,isLoading] = useButtonLoader("Create","Creating...")
     // var date = new Date();
-    const id = 1;
+    const id = useParams().testid;
     console.log(id);
     const onFormSubmit = (obj)=>
     {
 
-        console.log(obj);
+        // console.log(obj);
         const sendRequest = async()=>
         {
             isLoading(true);
             var userId = localStorage.getItem("userId")
-            const res = await axios.post(`http://localhost:5000/api/test/Addtests`,
+            const res = await axios.post(`http://localhost:5000/api/test/addquestion`,
             {
-                title:obj.title,
-                description:obj.description,
-                faculty : userId,
-                classroom : id 
+                question:obj.question,
+                option1 : obj.option1,
+                option2 : obj.option2,
+                option3 : obj.option3,
+                option4 : obj.option4,
+                correct : obj.correct,
+                testid : id
+
             })
             .catch(err=>isLoading(false))
             const data = res.data;
             console.log(data);
             return data;
         }
-        // sendRequest()
-        // .then(()=>isLoading(false))
-        // .then(()=>navigate("/"));
+        sendRequest()
+        .then(()=>isLoading(false))
+        .then(()=>navigate("/"));
     }
   return (
    
