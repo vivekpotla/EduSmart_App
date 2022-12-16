@@ -86,7 +86,8 @@ export const addStudent = async (req,res,next)=>
     try {
         existingClass = await Class.findById(classId);
         existingStudent = await Student.findOne({email:emailid});
-        enrolledStudent = existingStudent.classrooms.includes(classId);
+        if(existingStudent)
+            enrolledStudent = existingStudent.classrooms.includes(classId);
         
       
     } catch (error) {

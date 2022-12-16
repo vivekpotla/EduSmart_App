@@ -23,10 +23,7 @@ function AddTest() {
             var userId = localStorage.getItem("userId")
             const res = await axios.post(`http://localhost:5000/api/class/addstudent/${id}`,
             {
-                title:obj.title,
-                description:obj.description,
-                faculty : userId,
-                classroom : id 
+                emailid : obj.emailid
             })
             .catch(err=>isLoading(false))
             const data = res.data;
